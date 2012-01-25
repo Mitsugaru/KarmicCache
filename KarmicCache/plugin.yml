@@ -1,0 +1,25 @@
+name: KarmicCache
+
+version: 0.1
+
+main: com.Mitsugaru.KarmicCache.KarmicCache
+
+softdepend: [Vault, PermissionsEX, BOSEconomy7, MultiCurrency, Essentials, iCo5, iCo6]
+
+authors:
+    - Thomas Bucher
+    - Mitsugaru
+
+description: GeoCacheing for Minecraft. Simply fun.
+
+commands:
+  geo:
+    description: GeoCacher command
+    usage: "Usage: '/geo' or use '/help GeoCacher'"
+
+permissions:
+    KarmicCache.*:
+        description: Allows access to all KarmicCache commands.
+        children:
+            KarmicCache.find: true
+        default: false
