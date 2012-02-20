@@ -3,16 +3,19 @@ package com.Mitsugaru.KarmicCache;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.world.ChunkLoadEvent;
-import org.bukkit.event.world.WorldListener;
 
-public class KCChunkListener extends WorldListener {
+public class KCChunkListener implements Listener {
 	public KarmicCache plugin;
 
 	public KCChunkListener(KarmicCache kc) {
 		plugin = kc;
 	}
 
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onChunkLoad(ChunkLoadEvent event) {
 		// Check if we're auto-generating the caches
 		if (plugin.config.autogen)

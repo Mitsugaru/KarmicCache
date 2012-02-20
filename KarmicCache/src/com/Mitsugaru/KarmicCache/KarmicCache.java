@@ -79,11 +79,10 @@ public class KarmicCache extends JavaPlugin {
 		// Grab plugin manager
 		final PluginManager pm = getServer().getPluginManager();
 		//Register events
-		pm.registerEvent(Event.Type.PLAYER_INTERACT,
-				new KCPlayerListener(this), Event.Priority.Normal, this);
+		pm.registerEvents(new KCPlayerListener(this), this);
 		// Register a Chunk Creation, we may want to add a Cache
-		pm.registerEvent(Event.Type.BLOCK_BREAK, new KCBlockListener(this), Event.Priority.Normal, this);
-	    pm.registerEvent(Event.Type.CHUNK_LOAD, new KCChunkListener(this), Event.Priority.Monitor, this);
+		pm.registerEvents(new KCBlockListener(this), this);
+	    pm.registerEvents(new KCChunkListener(this), this);
 		//Load/verify cache list. Prune non-existing caches
 	    loadCacheList();
 	    log.info(prefix + " v" + getDescription().getVersion()

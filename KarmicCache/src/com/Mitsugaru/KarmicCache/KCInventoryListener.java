@@ -1,9 +1,9 @@
 package com.Mitsugaru.KarmicCache;
 
+import org.bukkit.event.Listener;
 import org.getspout.spoutapi.event.inventory.InventoryCloseEvent;
-import org.getspout.spoutapi.event.inventory.InventoryListener;
 
-public class KCInventoryListener extends InventoryListener {
+public class KCInventoryListener implements Listener {
 
 	public void onInventoryCloseEvent(InventoryCloseEvent event)
 	{

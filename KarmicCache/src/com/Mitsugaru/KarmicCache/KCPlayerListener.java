@@ -5,24 +5,28 @@ import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerListener;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.util.Vector;
 
-public class KCPlayerListener extends PlayerListener {
+public class KCPlayerListener implements Listener {
 	private KarmicCache plugin;
 
 	public KCPlayerListener(KarmicCache karmicCache) {
 		plugin = karmicCache;
 	}
 
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onPlayerQuit(PlayerQuitEvent event) {
 		// TODO Check if they are in the locked hashmap and remove them from it
 		// TODO remove chest from lock list
 	}
 
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		// Grab player
 		final Player player = event.getPlayer();
